@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "testdb";
+$dbname = "Mini_project";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Process form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $name = $_POST["name"];
     $email = $_POST["email"];
     $course = $_POST["course"];
@@ -27,10 +27,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Upload certificate file
     $certificate = "";
     if ($_FILES["certificate"]["size"] > 0) {
-        $targetDir = "certificates/";
+        $targetDir = "../certificates/"; // Update the target directory path
         $targetFile = $targetDir . basename($_FILES["certificate"]["name"]);
-        move_uploaded_file($_FILES["certificate"]["tmp_name"], $targetFile);
-        $certificate = $targetFile;
+        $fileTmpPath = $_FILES["certificate"]["tmp_name"];
+
+        // Check if the target directory exists and is writable
+        if (!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true);
+        }
+        if (!is_writable($targetDir)) {
+            echo "Target directory is not writable.";
+            exit;
+        }
+
+        // Move the uploaded file to the target directory
+        if (move_uploaded_file($fileTmpPath, $targetFile)) {
+            $certificate = $targetFile;
+        } else {
+            echo "Failed to move the uploaded file.";
+            exit;
+        }
     }
 
     // Insert registration data into the database
