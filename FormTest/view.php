@@ -14,9 +14,9 @@
     <?php
     // Database configuration
    $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "testdb";
+    $username = "root";
+    $password = "";
+    $dbname = "Mini_project";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -39,6 +39,8 @@ $dbname = "testdb";
             echo "Start Date: " . $row["startdate"] . "<br>";
             echo "End Date: " . $row["enddate"] . "<br>";
             if (!empty($row["certificate"])) {
+                // Inside the while loop, before the image rendering code
+                echo "Certificate File Path: " . $row["certificate"] . "<br>";
                 echo '<img class="certificate-img" src="' . $row["certificate"] . '" alt="Certificate"><br>';
             }
             echo "<hr>";
