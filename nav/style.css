@@ -1,0 +1,123 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    font-size: 24px;
+    color: #fff;
+}
+
+nav form {
+    display: flex;
+    align-items: center;
+}
+
+nav input[type="text"] {
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    font-size: 14px;
+}
+
+nav input[type="submit"] {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: none;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+/* Course registration form styles */
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.certificate-img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Search results page styles */
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+/* Form footer styles */
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
